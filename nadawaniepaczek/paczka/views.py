@@ -42,14 +42,12 @@ class NadawcaList(generics.ListCreateAPIView):
     name = 'nadawca-list'
     filter_fields = ['imie', 'nazwisko', 'adres_nadawcy']
     ordering_fields = ['imie', 'nazwisko']
-    permission_classes = [permissions.IsAuthenticated]
 
 
 class NadawcaDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Nadawca.objects.all()
     serializer_class = NadawcaSerializer
     name = 'nadawca-detail'
-    permission_classes = [permissions.IsAuthenticated]
 
 
 class OdbiorcaList(generics.ListCreateAPIView):
