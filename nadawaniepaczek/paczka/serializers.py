@@ -30,19 +30,19 @@ class ZamowienieSerializer(serializers.HyperlinkedModelSerializer):
     nadawca = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Nadawca.objects.all(), view_name='nadawca-detail')
     odbiorca = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Odbiorca.objects.all(), view_name='odbiorca-detail')
     dostawca = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Dostawca.objects.all(), view_name='dostawca-detail')
-    paczka = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Paczka.objects.all(),view_name='paczka-detail')
+    paczka = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Paczka.objects.all(), view_name='paczka-detail')
     class Meta:
         model = Zamowienie
-        fields = ['podziekowanie', 'adres_zamowienia', 'data_zamowienia', 'url']
+        fields = ['podziekowanie', 'adres_zamowienia', 'data_zamowienia', 'url', 'dostawca','nadawca','odbiorca','paczka']
 
 
 
 
 class HarmonogrampracySerializer(serializers.HyperlinkedModelSerializer):
-    dostawca = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Dostawca.objects.all(),view_name='dostawca-detail')
+    dostawca = serializers.HyperlinkedRelatedField(many=False, read_only=False, queryset=Dostawca.objects.all(), view_name='dostawca-detail')
     class Meta:
         model = Harmonogrampracy
-        fields = ['godziny_pracy', 'url']
+        fields = ['godziny_pracy', 'url','dostawca']
 
 
 
