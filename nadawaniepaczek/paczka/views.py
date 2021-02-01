@@ -72,14 +72,12 @@ class PaczkaList(generics.ListCreateAPIView):
     name = 'paczka-list'
     filter_fields = ['waga']
     ordering_fields = ['waga']
-    permission_classes = [permissions.IsAuthenticated]
 
 
 class PaczkaDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Paczka.objects.all()
     serializer_class = PaczkaSerializer
     name = 'paczka-detail'
-    permission_classes = [permissions.IsAuthenticated]
 
 
 class ZamowienieList(generics.ListCreateAPIView):
